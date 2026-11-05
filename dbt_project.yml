@@ -4,15 +4,8 @@ models:
   first_project:
     staging:                     
       +materialized: view        
-      +schema: staging           
-    intermediate:                
-      +materialized: ephemeral   
+      +schema: staging          
     marts:                       
       +materialized: table       
       +schema: marts
-      +tags: ['daily']           
-seeds:
-  first_project:
-    +schema: seeds               
-vars:
-  start_date: '2026-01-01'       
+      +tags: ['daily']         
