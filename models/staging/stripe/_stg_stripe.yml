@@ -1,0 +1,19 @@
+models:
+  - name: stg_stripe__payments
+    description: "Staged payment data from Stripe. One row per payment."   
+    columns:
+      - name: payment_id
+        description: "Primary key of the payment."
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to stg_jaffle_shop__orders."
+      - name: payment_method
+        description: "Method of payment (credit_card, coupon, bank_transfer, gift_card)."
+      - name: status
+        description: '{{ doc("payment_status") }}'
+      - name: amount
+        description: "Payment amount in dollars (converted from cents)."
+      - name: created_at
+        description: "Date when the payment was created."
